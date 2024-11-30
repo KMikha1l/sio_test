@@ -11,3 +11,18 @@ services:
             - .:/app:rw
         environment:
             - APP_ENV=dev
+        networks:
+            - sio
+    db:
+        image: mysql:8.0.33
+        ports:
+            - "8002:3306"
+        environment:
+            MYSQL_ROOT_PASSWORD: rootsecret
+            MYSQL_DATABASE: dbname
+            MYSQL_USER: dbuser
+            MYSQL_PASSWORD: secret
+        networks:
+            - sio
+networks:
+    sio:
