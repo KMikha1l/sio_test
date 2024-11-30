@@ -1,7 +1,6 @@
 /.idea
 .env.*.local
 compose.override.yaml
-.env
 
 ###> symfony/framework-bundle ###
 /.env.local
