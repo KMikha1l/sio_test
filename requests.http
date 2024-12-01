@@ -4,7 +4,12 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "product": 1,
+  "products": [
+    {
+      "id": 1,
+      "quantity": 1
+    }
+  ],
   "taxNumber": "DE123456789",
   "couponCode": "D15"
 }
@@ -15,7 +20,12 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "product": 1,
+  "products": [
+    {
+      "id": 1,
+      "quantity": 1
+    }
+  ],
   "taxNumber": "IT12345678900",
   "couponCode": "D15",
   "paymentProcessor": "paypal"
