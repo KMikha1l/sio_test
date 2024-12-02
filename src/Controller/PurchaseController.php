@@ -41,8 +41,10 @@ class PurchaseController extends AbstractController
 
         try {
             foreach ($request->getProducts() as $requestProduct) {
-                $product = $productRepository->findOrFail($requestProduct['id']);
-                $totalPrice += $product->getPrice()->getAmount();
+                for ($i = $requestProduct['quantity']; $i >= 1; $i--) {
+                    $product = $productRepository->findOrFail($requestProduct['id']);
+                    $totalPrice += $product->getPrice()->getAmount();
+                }
             }
 
             if ($request->getCouponCode()) {
@@ -91,12 +93,14 @@ class PurchaseController extends AbstractController
 
         try {
             foreach ($request->getProducts() as $requestProduct) {
-                $product = $productRepository->findOrFail($requestProduct['id']);
-                $totalPrice += $product->getPrice()->getAmount();
-                $item = new PurchaseItem();
-                $item->setProduct($product)
-                    ->setSellingPrice($product->getPrice());
-                $purchase->addItem($item);
+                for ($i = $requestProduct['quantity']; $i >= 1; $i--) {
+                    $product = $productRepository->findOrFail($requestProduct['id']);
+                    $totalPrice += $product->getPrice()->getAmount();
+                    $item = new PurchaseItem();
+                    $item->setProduct($product)
+                        ->setSellingPrice($product->getPrice());
+                    $purchase->addItem($item);
+                }
             }
 
             if ($request->getCouponCode()) {
