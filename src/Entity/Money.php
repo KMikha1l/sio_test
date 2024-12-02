@@ -8,6 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Embeddable]
 class Money
 {
+    public const DEFAULT_CURRENCY = 'EUR';
     private const CURRENCY_EURO = 'EUR';
 
     #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2)]
