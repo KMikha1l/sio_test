@@ -4,14 +4,13 @@ namespace App\Entity\Purchase;
 
 use App\Entity\DiscountCoupon;
 use App\Entity\Money;
-use App\Repository\PurchaseRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 
-#[ORM\Entity(repositoryClass: PurchaseRepository::class)]
+#[ORM\Entity()]
 class Purchase
 {
     use TimestampableEntity;
@@ -38,7 +37,7 @@ class Purchase
     #[ORM\Column(type: Types::STRING, columnDefinition: "ENUM('success', 'failed')")]
     private ?string $status = null;
 
-    #[ORM\OneToMany(targetEntity: PurchaseItem::class, mappedBy: 'purchase')]
+    #[ORM\OneToMany(targetEntity: PurchaseItem::class, mappedBy: 'purchase', cascade: ['persist', 'remove'])]
     private Collection $items;
 
     public function __construct()

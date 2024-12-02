@@ -8,10 +8,14 @@ Content-Type: application/json
     {
       "id": 1,
       "quantity": 1
+    },
+    {
+      "id": 2,
+      "quantity": 1
     }
   ],
   "taxNumber": "DE123456789",
-  "couponCode": "D15"
+  "couponCode": "P50"
 }
 
 ### Execute Purchase

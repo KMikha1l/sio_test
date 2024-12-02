@@ -26,7 +26,7 @@ class PurchaseRequest extends BaseRequest
 
     #[Assert\NotBlank]
     #[Assert\Type(Types::STRING)]
-    #[Assert\Length(min: 12, max: 14)]
+    #[Assert\Length(min: 11, max: 14)]
     protected string $taxNumber;
 
     #[Assert\NotBlank]
@@ -36,4 +36,24 @@ class PurchaseRequest extends BaseRequest
     #[Assert\NotBlank]
     #[Assert\Type(Types::STRING)]
     protected string $paymentProcessor;
+
+    public function getProducts(): array
+    {
+        return $this->products;
+    }
+
+    public function getTaxNumber(): string
+    {
+        return $this->taxNumber;
+    }
+
+    public function getCouponCode(): string
+    {
+        return $this->couponCode;
+    }
+
+    public function getPaymentProcessor(): string
+    {
+        return $this->paymentProcessor;
+    }
 }

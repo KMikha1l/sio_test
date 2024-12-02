@@ -26,7 +26,7 @@ class CalculatePriceRequest extends BaseRequest
 
     #[Assert\NotBlank]
     #[Assert\Type(Types::STRING)]
-    #[Assert\Length(min: 12, max: 14)]
+    #[Assert\Length(min: 11, max: 14)]
     protected string $taxNumber;
 
     #[Assert\Type(Types::STRING)]

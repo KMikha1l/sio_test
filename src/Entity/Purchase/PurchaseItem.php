@@ -4,11 +4,10 @@ namespace App\Entity\Purchase;
 
 use App\Entity\Money;
 use App\Entity\Product;
-use App\Repository\PurchaseItemRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 
-#[ORM\Entity(repositoryClass: PurchaseItemRepository::class)]
+#[ORM\Entity()]
 class PurchaseItem
 {
     use TimestampableEntity;
@@ -55,6 +54,17 @@ class PurchaseItem
     {
         $this->purchase = $purchase;
 
+        return $this;
+    }
+
+    public function getSellingPrice(): ?Money
+    {
+        return $this->sellingPrice;
+    }
+
+    public function setSellingPrice(?Money $sellingPrice): PurchaseItem
+    {
+        $this->sellingPrice = $sellingPrice;
         return $this;
     }
 }
