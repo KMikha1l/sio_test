@@ -9,10 +9,13 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Timestampable\Traits\TimestampableEntity;
 
 #[ORM\Entity(repositoryClass: PurchaseRepository::class)]
 class Purchase
 {
+    use TimestampableEntity;
+
     public const STATUS_SUCCESS = 'success';
 
     public const STATUS_FAILED = 'failed';
