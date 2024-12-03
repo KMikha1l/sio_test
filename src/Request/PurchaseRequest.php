@@ -31,7 +31,7 @@ class PurchaseRequest extends BaseRequest
 
     #[Assert\NotBlank]
     #[Assert\Type(Types::STRING)]
-    protected string $couponCode;
+    protected string $couponCode = '';
 
     #[Assert\NotBlank]
     #[Assert\Type(Types::STRING)]

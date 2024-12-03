@@ -30,7 +30,7 @@ class CalculatePriceRequest extends BaseRequest
     protected string $taxNumber;
 
     #[Assert\Type(Types::STRING)]
-    protected ?string $couponCode;
+    protected ?string $couponCode = '';
 
     public function getProducts(): array
     {
